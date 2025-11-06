@@ -43,7 +43,7 @@ void setup() {
 
   // Initialize MAX7219  från https://www.instructables.com/MAX7219-7-Segment-Using-Arduino/
   lc.shutdown(0, false);   // Wake up display
-  lc.setIntensity(0, 5);   // Medium brightness
+  lc.setIntensity(0, 1);   // Medium brightness
   lc.clearDisplay(0);      // Clear all digits
 }
 
@@ -135,6 +135,7 @@ void displayMAX7219(DateTime now) {
   int ss = now.second();
 
   // Digits: 7=leftmost, 0=rightmost
+  // VI GÖR / 10 FÖR ATT FÅ TIOTALET OCH % 10 FÖR ATT FÅ ENTALET. (13:30) ,/10 = 1 ,%10 = 3 ,/10 = 3 ,% 10 = 0
   lc.setDigit(0, 7, hh / 10, false);
   lc.setDigit(0, 6, hh % 10, false);
   lc.setDigit(0, 5, mm / 10, false);
